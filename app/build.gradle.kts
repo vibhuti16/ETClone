@@ -77,12 +77,17 @@ android {
 }
 
 dependencies {
-    implementation(project(":feature:author"))
-    implementation(project(":feature:interests"))
-    implementation(project(":feature:foryou"))
-    implementation(project(":feature:bookmarks"))
-    implementation(project(":feature:topic"))
+//    implementation(project(":feature:author"))
+//    implementation(project(":feature:interests"))
+//    implementation(project(":feature:foryou"))
+//    implementation(project(":feature:bookmarks"))
+//    implementation(project(":feature:topic"))
     implementation(project(":feature:settings"))
+    implementation(project(":feature:home"))
+    implementation(project(":feature:quickreads"))
+    implementation(project(":feature:etprime"))
+    implementation(project(":feature:markets"))
+    implementation(project(":feature:todayspaper"))
 
     implementation(project(":core:common"))
     implementation(project(":core:ui"))

@@ -34,18 +34,17 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
 import androidx.tracing.trace
+import com.google.sample.apps.nowinandroid.feature.home.navigation.homeNavigationRoute
+import com.google.sample.apps.nowinandroid.feature.home.navigation.navigateToHome
+import com.google.sample.apps.nowinandroid.feature.todayspaper.navigation.todaysPaperNavigationRoute
 import com.google.samples.apps.nowinandroid.core.data.util.NetworkMonitor
 import com.google.samples.apps.nowinandroid.core.ui.TrackDisposableJank
-import com.google.samples.apps.nowinandroid.feature.bookmarks.navigation.bookmarksRoute
-import com.google.samples.apps.nowinandroid.feature.bookmarks.navigation.navigateToBookmarks
-import com.google.samples.apps.nowinandroid.feature.foryou.navigation.forYouNavigationRoute
-import com.google.samples.apps.nowinandroid.feature.foryou.navigation.navigateToForYou
-import com.google.samples.apps.nowinandroid.feature.interests.navigation.interestsRoute
-import com.google.samples.apps.nowinandroid.feature.interests.navigation.navigateToInterestsGraph
+import com.google.samples.apps.nowinandroid.etprime.navigation.etPrimeNavigationRoute
+import com.google.samples.apps.nowinandroid.etprime.navigation.navigateToETPrime
+import com.google.samples.apps.nowinandroid.markets.navigation.marketsNavigationRoute
 import com.google.samples.apps.nowinandroid.navigation.TopLevelDestination
-import com.google.samples.apps.nowinandroid.navigation.TopLevelDestination.BOOKMARKS
-import com.google.samples.apps.nowinandroid.navigation.TopLevelDestination.FOR_YOU
-import com.google.samples.apps.nowinandroid.navigation.TopLevelDestination.INTERESTS
+import com.google.samples.apps.nowinandroid.navigation.TopLevelDestination.*
+import com.google.samples.apps.nowinandroid.quickreads.navigation.quickreadsNavigationRoute
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.map
@@ -77,9 +76,15 @@ class NiaAppState(
 
     val currentTopLevelDestination: TopLevelDestination?
         @Composable get() = when (currentDestination?.route) {
-            forYouNavigationRoute -> FOR_YOU
-            bookmarksRoute -> BOOKMARKS
-            interestsRoute -> INTERESTS
+//            forYouNavigationRoute -> FOR_YOU
+//            bookmarksRoute -> BOOKMARKS
+//            interestsRoute -> INTERESTS
+            homeNavigationRoute -> HOME
+            etPrimeNavigationRoute -> ETPRIME
+            todaysPaperNavigationRoute -> TODAYSPAPER
+            marketsNavigationRoute -> MARKET
+            quickreadsNavigationRoute -> QUICKREADS
+
             else -> null
         }
 
@@ -131,9 +136,11 @@ class NiaAppState(
             }
 
             when (topLevelDestination) {
-                FOR_YOU -> navController.navigateToForYou(topLevelNavOptions)
-                BOOKMARKS -> navController.navigateToBookmarks(topLevelNavOptions)
-                INTERESTS -> navController.navigateToInterestsGraph(topLevelNavOptions)
+                HOME -> navController.navigateToHome(topLevelNavOptions)
+                ETPRIME -> navController.navigateToETPrime(topLevelNavOptions)
+                TODAYSPAPER -> navController.navigateToETPrime(topLevelNavOptions)
+                MARKET -> navController.navigateToETPrime(topLevelNavOptions)
+                QUICKREADS -> navController.navigateToETPrime(topLevelNavOptions)
             }
         }
     }

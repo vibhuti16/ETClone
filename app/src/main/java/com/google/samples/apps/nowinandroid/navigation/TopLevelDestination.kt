@@ -16,14 +16,14 @@
 
 package com.google.samples.apps.nowinandroid.navigation
 
-import com.google.samples.apps.nowinandroid.R
 import com.google.samples.apps.nowinandroid.core.designsystem.icon.Icon
-import com.google.samples.apps.nowinandroid.core.designsystem.icon.Icon.DrawableResourceIcon
 import com.google.samples.apps.nowinandroid.core.designsystem.icon.Icon.ImageVectorIcon
 import com.google.samples.apps.nowinandroid.core.designsystem.icon.NiaIcons
-import com.google.samples.apps.nowinandroid.feature.bookmarks.R as bookmarksR
-import com.google.samples.apps.nowinandroid.feature.foryou.R as forYouR
-import com.google.samples.apps.nowinandroid.feature.interests.R as interestsR
+import com.google.sample.apps.nowinandroid.feature.home.R as homeR
+import com.google.samples.apps.nowinandroid.feature.etprime.R as etPrimeR
+import com.google.samples.apps.nowinandroid.feature.todayspaper.R as todayPaper
+import com.google.samples.apps.nowinandroid.feature.markets.R as marketR
+import com.google.samples.apps.nowinandroid.feature.quickreads.R as quickreadsR
 
 /**
  * Type for the top level destinations in the application. Each of these destinations
@@ -36,22 +36,35 @@ enum class TopLevelDestination(
     val iconTextId: Int,
     val titleTextId: Int
 ) {
-    FOR_YOU(
-        selectedIcon = DrawableResourceIcon(NiaIcons.Upcoming),
-        unselectedIcon = DrawableResourceIcon(NiaIcons.UpcomingBorder),
-        iconTextId = forYouR.string.for_you,
-        titleTextId = R.string.app_name
-    ),
-    BOOKMARKS(
-        selectedIcon = DrawableResourceIcon(NiaIcons.Bookmarks),
-        unselectedIcon = DrawableResourceIcon(NiaIcons.BookmarksBorder),
-        iconTextId = bookmarksR.string.saved,
-        titleTextId = bookmarksR.string.saved
-    ),
-    INTERESTS(
+
+    HOME(
         selectedIcon = ImageVectorIcon(NiaIcons.Grid3x3),
         unselectedIcon = ImageVectorIcon(NiaIcons.Grid3x3),
-        iconTextId = interestsR.string.interests,
-        titleTextId = interestsR.string.interests
+        iconTextId = homeR.string.home,
+        titleTextId = homeR.string.home
+    ),
+    ETPRIME(
+        selectedIcon = ImageVectorIcon(NiaIcons.Grid3x3),
+        unselectedIcon = ImageVectorIcon(NiaIcons.Grid3x3),
+        iconTextId = etPrimeR.string.etprime,
+        titleTextId = etPrimeR.string.etprime,
+    ),
+    TODAYSPAPER(
+        selectedIcon = ImageVectorIcon(NiaIcons.Grid3x3),
+        unselectedIcon = ImageVectorIcon(NiaIcons.Grid3x3),
+        iconTextId = todayPaper.string.todayspaper,
+        titleTextId = todayPaper.string.todayspaper
+    ),
+    MARKET(
+        selectedIcon = ImageVectorIcon(NiaIcons.Grid3x3),
+        unselectedIcon = ImageVectorIcon(NiaIcons.Grid3x3),
+        iconTextId = marketR.string.markets,
+        titleTextId = marketR.string.markets
+    ),
+    QUICKREADS(
+        selectedIcon = ImageVectorIcon(NiaIcons.Grid3x3),
+        unselectedIcon = ImageVectorIcon(NiaIcons.Grid3x3),
+        iconTextId = quickreadsR.string.quickreads,
+        titleTextId = quickreadsR.string.quickreads
     )
 }

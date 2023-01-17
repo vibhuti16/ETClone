@@ -20,14 +20,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import com.google.samples.apps.nowinandroid.feature.author.navigation.authorScreen
-import com.google.samples.apps.nowinandroid.feature.author.navigation.navigateToAuthor
-import com.google.samples.apps.nowinandroid.feature.bookmarks.navigation.bookmarksScreen
-import com.google.samples.apps.nowinandroid.feature.foryou.navigation.forYouNavigationRoute
-import com.google.samples.apps.nowinandroid.feature.foryou.navigation.forYouScreen
-import com.google.samples.apps.nowinandroid.feature.interests.navigation.interestsGraph
-import com.google.samples.apps.nowinandroid.feature.topic.navigation.navigateToTopic
-import com.google.samples.apps.nowinandroid.feature.topic.navigation.topicScreen
+import com.google.sample.apps.nowinandroid.feature.home.navigation.homeNavigationRoute
+import com.google.sample.apps.nowinandroid.feature.home.navigation.homeScreen
+import com.google.sample.apps.nowinandroid.feature.todayspaper.navigation.todaysPaper
+import com.google.sample.apps.nowinandroid.feature.todayspaper.navigation.todaysPaperNavigationRoute
+import com.google.samples.apps.nowinandroid.etprime.navigation.etPrimeScreen
+import com.google.samples.apps.nowinandroid.markets.navigation.marketsScreen
+import com.google.samples.apps.nowinandroid.quickreads.navigation.quickReadsScreen
+import com.google.samples.apps.nowinandroid.quickreads.navigation.quickreadsNavigationRoute
 
 /**
  * Top-level navigation graph. Navigation is organized as explained at
@@ -41,26 +41,18 @@ fun NiaNavHost(
     navController: NavHostController,
     onBackClick: () -> Unit,
     modifier: Modifier = Modifier,
-    startDestination: String = forYouNavigationRoute
+    startDestination: String = homeNavigationRoute
 ) {
     NavHost(
         navController = navController,
         startDestination = startDestination,
         modifier = modifier,
     ) {
-        forYouScreen()
-        bookmarksScreen()
-        interestsGraph(
-            navigateToTopic = { topicId ->
-                navController.navigateToTopic(topicId)
-            },
-            navigateToAuthor = { authorId ->
-                navController.navigateToAuthor(authorId)
-            },
-            nestedGraphs = {
-                topicScreen(onBackClick)
-                authorScreen(onBackClick)
-            }
-        )
+        homeScreen()
+        todaysPaper()
+        etPrimeScreen()
+        marketsScreen()
+        quickReadsScreen()
+
     }
 }
